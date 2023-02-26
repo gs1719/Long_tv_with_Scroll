@@ -1,4 +1,6 @@
 # Long_tv_with_Scroll
+#### dont use layout gravity center in text view inside scroll view
+# OR
 Should use scroll view with Relative layout IF text is too long
 
 here tested found that scroll view with linear layout does not work </br>
