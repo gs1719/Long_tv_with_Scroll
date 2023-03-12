@@ -1,8 +1,8 @@
 # Long_tv_with_Scroll
-#### dont use layout gravity center in text view inside scroll view
-# OR
-Should use scroll view with Relative layout IF text is too long
-
+## 1. always have an linear layout or contraint layout inside of scroll view then put anything to it (text or image)
+   [Documentation](https://developer.android.com/reference/android/widget/ScrollView)
+## 2. if parent layout is linear layout then dont use layout gravity center in text view inside scroll view 
+## 3. Should use scroll view with Relative layout or contraint layout IF text is too long
 here tested found that scroll view with linear layout does not work </br>
 so insterad use relative layout
 first set relative layout then image layout then scrool view then text view then image view 2
@@ -57,6 +57,7 @@ first set relative layout then image layout then scrool view then text view then
 ```
 </p>
 </details>
+
 
 <details><summary>VIDEO</summary>
 <p>
