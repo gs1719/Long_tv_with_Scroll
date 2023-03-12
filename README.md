@@ -1,7 +1,92 @@
 # Long_tv_with_Scroll
-## 1. always have an linear layout or contraint layout inside of scroll view then put anything to it (text or image)
-   [Documentation](https://developer.android.com/reference/android/widget/ScrollView)
-## 2. if parent layout is linear layout then dont use layout gravity center in text view inside scroll view 
+## 1. Scrollview ---> linearLayout or constraintlayout ---> have your textview or imageview
+have your textview or imageview under any layout not directly to the scroll view
+
+in short your view should not be direct child of scroll view
+
+[Documentation](https://developer.android.com/reference/android/widget/ScrollView)
+   
+<details><summary>Code1</summary>
+<p>
+
+```.xml
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="10dp"
+    tools:context=".NewsDetailActivity">
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/newsImage"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.842"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+
+        app:layout_constraintVertical_bias="0.03"
+        app:srcCompat="@drawable/img1">
+
+    </com.google.android.material.imageview.ShapeableImageView>
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/newsHeading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="start"
+        android:text="Joe Biden appoints two prominent Indian-American corporate leaders to his Export Council"
+        android:textSize="23sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.526"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/newsImage"
+        app:layout_constraintVertical_bias="0.03">
+
+    </com.google.android.material.textview.MaterialTextView>
+
+    <ScrollView
+        android:layout_width="376dp"
+        android:layout_height="200dp"
+        android:layout_marginTop="12dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.742"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/newsHeading"
+        app:layout_constraintVertical_bias="0.177">
+        >
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/news_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent">
+
+            </TextView>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>
+```
+</p>
+</details>
+
+## 2. If parent layout is linear layout then dont use layout gravity center in text view inside scroll view 
+
 ## 3. Should use scroll view with Relative layout or contraint layout IF text is too long
 here tested found that scroll view with linear layout does not work </br>
 so insterad use relative layout
