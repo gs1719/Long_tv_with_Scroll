@@ -1,12 +1,70 @@
 # Long_tv_with_Scroll
-## 1. Scrollview ---> linearLayout or constraintlayout ---> have your textview or imageview
+
+## 1. Should use scroll view with Relative or Contraint layout IF text is too long
+here tested found that scroll view with direct child of linear layout remove starting text for long string </br>
+so instead use Relative or Contraint layout</br>
+as Parent
+
+<details><summary>Code 1</summary>
+<p>
+
+```.xml
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:contentDescription="@string/pic_1"
+        android:src="@drawable/icons8_github_256"
+        android:backgroundTint="@color/white"
+        />
+
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:layout_below="@id/imageView4"
+        >
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:text="@string/some_text" />
+    </ScrollView>
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@drawable/java"
+        android:layout_below="@+id/scrollView"/>
+
+</RelativeLayout>
+```
+</p>
+</details>
+
+## 2.More than One View Then Use  
+Scrollview ---> linearLayout or constraintlayout ---> have your textview or imageview
+
 If you have more than ONE VIEW then have your textview or imageview under any layout not directly to the scroll view
 
 in short more than one view should not be direct child of scroll view
 
 As per [Documentation](https://developer.android.com/reference/android/widget/ScrollView)
    
-<details><summary>Code1</summary>
+<details><summary>Code 2</summary>
 <p>
 
 ```.xml
@@ -86,61 +144,6 @@ As per [Documentation](https://developer.android.com/reference/android/widget/Sc
 </p>
 </details>
 
-## 2. Should use scroll view with Relative layout or contraint layout IF text is too long
-here tested found that scroll view with linear layout does not work </br>
-so insterad use relative layout
-first set relative layout then image layout then scrool view then text view then image view 2
-
-
-<details><summary>Code2</summary>
-<p>
-
-```.xml
-<?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".MainActivity">
-
-
-    <ImageView
-        android:id="@+id/imageView4"
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:contentDescription="@string/pic_1"
-        android:src="@drawable/icons8_github_256"
-        android:backgroundTint="@color/white"
-        />
-
-    <ScrollView
-        android:id="@+id/scrollView"
-        android:layout_width="match_parent"
-        android:layout_height="300dp"
-        android:layout_below="@id/imageView4"
-        >
-
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="14sp"
-            android:text="@string/some_text" />
-    </ScrollView>
-
-    <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:src="@drawable/java"
-        android:layout_below="@+id/scrollView"/>
-
-</RelativeLayout>
-```
-</p>
-</details>
 
 ## 3. If parent layout is linear layout then dont use layout gravity center in text view inside scroll view 
 
