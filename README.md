@@ -1,10 +1,10 @@
 # Long_tv_with_Scroll
 ## 1. Scrollview ---> linearLayout or constraintlayout ---> have your textview or imageview
-have your textview or imageview under any layout not directly to the scroll view
+If you have more than ONE VIEW then have your textview or imageview under any layout not directly to the scroll view
 
-in short your view should not be direct child of scroll view
+in short more than one view should not be direct child of scroll view
 
-[Documentation](https://developer.android.com/reference/android/widget/ScrollView)
+As per [Documentation](https://developer.android.com/reference/android/widget/ScrollView)
    
 <details><summary>Code1</summary>
 <p>
@@ -75,8 +75,9 @@ in short your view should not be direct child of scroll view
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent">
-
             </TextView>
+            
+            //Your other view HERE 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
@@ -85,15 +86,13 @@ in short your view should not be direct child of scroll view
 </p>
 </details>
 
-## 2. If parent layout is linear layout then dont use layout gravity center in text view inside scroll view 
-
-## 3. Should use scroll view with Relative layout or contraint layout IF text is too long
+## 2. Should use scroll view with Relative layout or contraint layout IF text is too long
 here tested found that scroll view with linear layout does not work </br>
 so insterad use relative layout
 first set relative layout then image layout then scrool view then text view then image view 2
 
 
-<details><summary>Code</summary>
+<details><summary>Code2</summary>
 <p>
 
 ```.xml
@@ -143,6 +142,7 @@ first set relative layout then image layout then scrool view then text view then
 </p>
 </details>
 
+## 3. If parent layout is linear layout then dont use layout gravity center in text view inside scroll view 
 
 <details><summary>VIDEO</summary>
 <p>
