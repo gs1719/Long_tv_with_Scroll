@@ -30,7 +30,7 @@ as Parent
 
     <ScrollView
         android:id="@+id/scrollView"
-        android:layout_width="match_parent"
+        android:layout_width="match_parent" or //wrap content
         android:layout_height="300dp"
         android:layout_below="@id/imageView4"
         >
@@ -111,7 +111,7 @@ As per [Documentation](https://developer.android.com/reference/android/widget/Sc
     </com.google.android.material.textview.MaterialTextView>
 
     <ScrollView
-        android:layout_width="376dp"
+        android:layout_width="376dp"  //or wrap content
         android:layout_height="200dp" //or 0dp but not match parent or wrap content
         android:layout_marginTop="12dp"
         app:layout_constraintBottom_toBottomOf="parent"
