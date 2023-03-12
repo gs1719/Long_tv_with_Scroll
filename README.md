@@ -11,7 +11,8 @@ in short your view should not be direct child of scroll view
 
 ```.xml
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout 
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -29,7 +30,6 @@ in short your view should not be direct child of scroll view
         app:layout_constraintHorizontal_bias="0.842"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-
         app:layout_constraintVertical_bias="0.03"
         app:srcCompat="@drawable/img1">
 
@@ -40,7 +40,7 @@ in short your view should not be direct child of scroll view
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="start"
-        android:text="Joe Biden appoints two prominent Indian-American corporate leaders to his Export Council"
+        android:text="Joe Biden appoints two prominent......"
         android:textSize="23sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -54,7 +54,7 @@ in short your view should not be direct child of scroll view
 
     <ScrollView
         android:layout_width="376dp"
-        android:layout_height="200dp"
+        android:layout_height="200dp" //or 0dp but not match parent or wrap content
         android:layout_marginTop="12dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
